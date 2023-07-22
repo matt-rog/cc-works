@@ -11,7 +11,7 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(displayWidth, displayHeight, WEBGL);
+  createCanvas(windowWidth, windowHeight, WEBGL);
   fill("#ffffff");
   textAlign(CENTER, CENTER);
   textFont(roboto_mono);
@@ -23,7 +23,7 @@ function draw() {
   background("#020202");
   ambientLight(255);
   noLights();
-  let maxRing = displayWidth / 3 > 220 ? 220 : (displayWidth * 0.66) / 2;
+  let maxRing = windowWidth / 3 > 220 ? 220 : (windowWidth * 0.66) / 2;
 
   //   push();
 
@@ -36,9 +36,9 @@ function draw() {
 
   push();
   translate(0, 0, 0);
-  drawPlusRing(displayHeight * 0.6, 0, 0, 0, 50, 1);
-  drawPlusRing(displayHeight * 0.5, 0, 0, 0, 50, -1);
-  drawPlusRing(displayHeight * 0.4, 0, 0, 0, 50, -1);
+  drawPlusRing(windowHeight * 0.6, 0, 0, 0, 50, 1);
+  drawPlusRing(windowHeight * 0.5, 0, 0, 0, 50, -1);
+  drawPlusRing(windowHeight * 0.4, 0, 0, 0, 50, -1);
 
   rotateZ(90);
   drawPipeRing(height / 2, 0, 0, 0, 50);
@@ -47,23 +47,25 @@ function draw() {
 
   pop();
 
+  let h = windowWidth > 500 ? 1 : 0.4;
+
   drawPipeRing(maxRing + 50, 0, -190, 0, 150);
 
-  drawPipeRing(maxRing - 170, 0, -155, 0, 170);
-  drawPipeRing(maxRing - 145, 0, -140, 0, 250);
-  drawPipeRing(maxRing - 105, 0, -110, 0, 250);
-  drawPipeRing(maxRing - 80, 0, -80, 0, 250);
-  drawPipeRing(maxRing - 60, 0, -50, 0, 250);
-  drawPipeRing(maxRing, 0, -35, 0, 150);
+  drawPipeRing(maxRing - 170, 0, -155 * h, 0, 170);
+  drawPipeRing(maxRing - 145, 0, -140 * h, 0, 250);
+  drawPipeRing(maxRing - 105, 0, -110 * h, 0, 250);
+  drawPipeRing(maxRing - 80, 0, -80 * h, 0, 250);
+  drawPipeRing(maxRing - 60, 0, -50 * h, 0, 250);
+  drawPipeRing(maxRing, 0, -35, 0 * h, 150);
   // MIDTEXT
-  drawPipeRing(maxRing, 0, 35, 0, 150);
-  drawPipeRing(maxRing - 60, 0, 50, 0, 250);
-  drawPipeRing(maxRing - 80, 0, 80, 0, 250);
-  drawPipeRing(maxRing - 105, 0, 110, 0, 250);
-  drawPipeRing(maxRing - 145, 0, 140, 0, 250);
-  drawPipeRing(maxRing - 130, 0, 155, 0, 250);
+  drawPipeRing(maxRing, 0, 35, 0 * h, 150);
+  drawPipeRing(maxRing - 60, 0, 50 * h, 0, 250);
+  drawPipeRing(maxRing - 80, 0, 80 * h, 0, 250);
+  drawPipeRing(maxRing - 105, 0, 110 * h, 0, 250);
+  drawPipeRing(maxRing - 145, 0, 140 * h, 0, 250);
+  drawPipeRing(maxRing - 130, 0, 155 * h, 0, 250);
 
-  drawPipeRing(maxRing - 50, 0, 170, 0, 100);
+  drawPipeRing(maxRing - 50, 0, 170 * h, 0, 100);
 
   drawPipeRing(maxRing + 50, 0, 190, 0, 150);
 }
@@ -132,18 +134,18 @@ function drawRoundText(radius, string, alpha, x, y, z) {
 }
 
 function windowResized() {
-  resizeCanvas(displayWidth, displayHeight, false);
+  resizeCanvas(windowWidth, windowHeight, false);
 }
 
 // Util
 function getFontSize() {
   let s = 25;
-  let p = displayWidth / 35;
+  let p = windowWidth / 35;
   return p > s ? s : p;
 }
 
 function getSymbolSize() {
   let s = 15;
-  let p = displayWidth / 70;
+  let p = windowWidth / 70;
   return p > s ? s : p;
 }
