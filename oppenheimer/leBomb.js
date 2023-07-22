@@ -11,7 +11,7 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(windowWidth, windowHeight, WEBGL);
+  createCanvas(displayWidth, displayHeight, WEBGL);
   fill("#ffffff");
   textAlign(CENTER, CENTER);
   textFont(roboto_mono);
@@ -23,7 +23,7 @@ function draw() {
   background("#020202");
   ambientLight(255);
   noLights();
-  let maxRing = windowWidth / 3 > 220 ? 220 : (windowWidth * 0.66) / 2;
+  let maxRing = displayWidth / 3 > 220 ? 220 : (displayWidth * 0.66) / 2;
 
   //   push();
 
@@ -36,9 +36,9 @@ function draw() {
 
   push();
   translate(0, 0, 0);
-  drawPlusRing(windowHeight * 0.6, 0, 0, 0, 50, 1);
-  drawPlusRing(windowHeight * 0.5, 0, 0, 0, 50, -1);
-  drawPlusRing(windowHeight * 0.4, 0, 0, 0, 50, -1);
+  drawPlusRing(displayHeight * 0.6, 0, 0, 0, 50, 1);
+  drawPlusRing(displayHeight * 0.5, 0, 0, 0, 50, -1);
+  drawPlusRing(displayHeight * 0.4, 0, 0, 0, 50, -1);
 
   rotateZ(90);
   drawPipeRing(height / 2, 0, 0, 0, 50);
@@ -130,15 +130,20 @@ function drawRoundText(radius, string, alpha, x, y, z) {
     pop(); // Restore the previous transformation
   }
 }
+
+function windowResized() {
+  resizeCanvas(displayWidth, displayHeight, false);
+}
+
 // Util
 function getFontSize() {
   let s = 25;
-  let p = windowWidth / 35;
+  let p = displayWidth / 35;
   return p > s ? s : p;
 }
 
 function getSymbolSize() {
   let s = 15;
-  let p = windowWidth / 70;
+  let p = displayWidth / 70;
   return p > s ? s : p;
 }
