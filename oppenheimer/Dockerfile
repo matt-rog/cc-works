@@ -5,6 +5,6 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . .
-RUN browser-sync start --server -f -w
+RUN npm run start
 ENV NODE_ENV=production
-EXPOSE 3000
+EXPOSE 8080
