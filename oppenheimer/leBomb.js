@@ -130,11 +130,6 @@ function drawRoundText(radius, string, alpha, x, y, z) {
     pop(); // Restore the previous transformation
   }
 }
-
-function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
-}
-
 // Util
 function getFontSize() {
   let s = 25;
