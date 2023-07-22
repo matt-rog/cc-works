@@ -2,9 +2,9 @@ const PIPES_PER_RING = 40;
 const PIPE_SIZE = 12;
 const PLUS_PER_RING = 40;
 
-let topText = "THERE'S A SMALL POSSIBILITY\nTHEY'RE GOING TO";
-let midText = "DESTROY THE ENTIRE WORLD";
-let botText = "AND YET THEY PUSH THE BUTTON";
+let topText = "THERE'S A BIG POSSIBILITY\nI AM GOING TO";
+let midText = "EAT A SHOPPING CART";
+let botText = "AND YET THEY KEEP\nLEAVING THEM OUTSIDE";
 
 function preload() {
   roboto_mono = loadFont("assets/RobotoMono-Regular.ttf");
